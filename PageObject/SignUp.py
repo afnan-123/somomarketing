@@ -27,11 +27,11 @@ class SignUp:
         driver.execute_script("window.scrollTo(0, 400)")
 
     def selectplatform_driver(self):
-        open_signup.open_signup_url()
         btn_driver = driver.find_element(By.CSS_SELECTOR, ".btn.color-secondary-bg.px-4")
         driver.execute_script("arguments[0].click();", btn_driver)
 
     def selectplatform_advertiser(self):
+        SignUp.scroll_windows(self)
         btn_advertiser = driver.find_elements(By.CSS_SELECTOR, ".btn.color-secondary-bg.px-4")
         btn_advertiser[1].click()
 
@@ -62,23 +62,38 @@ class SignUp:
         name_field = driver.find_elements(By.CSS_SELECTOR, ".form-control.bg-transparent")
         name_field[argu].send_keys(field_text)
 
-    def signup_driver(self):
-
+    def drp_regtype_click(self):
         drp_type = driver.find_element(By.CSS_SELECTOR, ".form-select.bg-transparent")
         drp_type.click()
 
+    def drp_select_type(self):
         sel_regtype = Select(driver.find_element(By.CSS_SELECTOR, ".form-select.bg-transparent"))
         sel_regtype.select_by_index(1)
 
-        business_name = driver.find_element(By.XPATH, "//div[@class='row']//div[5]//input[1]")
-        business_name.send_keys("Jonas Trucking")
+    def adv_dropdown(self, value):
+        val = value
+        drp_advertising = driver.find_elements(By.CSS_SELECTOR, ".form-select.bg-transparent")
+        drp_advertising[val].click()
+        selt_advertising = Select(driver.find_element(By.CSS_SELECTOR, ".form-select.bg-transparent"))
+        selt_advertising.select_by_index(1)
 
-        EIN = driver.find_element(By.XPATH, "//input[@placeholder='XX-XXXXXXX']")
-        EIN.send_keys("123213456")
+    def adv_dropdown_platform(self):
+        drp_platform = driver.find_element(By.XPATH,
+                                           "//div[@class='col-md-3']//select[@aria-label='Default select example']")
+        drp_platform.click()
 
-        business_email = driver.find_element(By.XPATH, "//input[@type='email']")
-        business_email.send_keys("Jonastruckingg@gmail.com")
+        time.sleep(1)
+        selt_platform = Select(
+            driver.find_element(By.XPATH, "//div[@class='col-md-3']//select[@aria-label='Default select example']"))
+        selt_platform.select_by_index(1)
 
+    def signup_driver(self):
+
+        SignUp.drp_regtype_click(self)
+        SignUp.drp_select_type(self)
+        SignUp.signup_names(self, 0, "Mark Trucks")
+        SignUp.signup_names(self, 1, "234534532")
+        SignUp.signup_names(self, 2, "marktrucks@yomail.com")
         SignUp.phonenumber(self, "+1 234 454 3423")
         SignUp.scroll_windows(self)
         SignUp.select_address(self)
@@ -98,9 +113,27 @@ class SignUp:
         SignUp.signup_names(self, 0, "12345")
         SignUp.signup_names(self, 1, "12345")
         time.sleep(5)
+    def SignUp_advertiser(self):
+        SignUp.open_signup_url(self)
+        driver.implicitly_wait(4)
+        SignUp.selectplatform_advertiser(self)
+        SignUp.signup_names(self, 0, "Elon")
+        SignUp.signup_names(self, 1, "Mash")
+        SignUp.signup_names(self, 2, "Elon@yopmail.com")
+        SignUp.signup_names(self, 3, "X")
+        SignUp.signup_names(self, 4, "CEO")
+        SignUp.adv_dropdown(self, 0)
+        driver.implicitly_wait(3)
+        SignUp.adv_dropdown_platform(self)
+        SignUp.scroll_windows(self)
+        SignUp.select_address(self)
+        SignUp.btn_continue(self, 0)
+        time.sleep(3)
+        SignUp.signup_names(self, 0, "12345")
+        SignUp.signup_names(self, 1, "12345")
+        time.sleep(3)
 
 
 open_signup = SignUp()
-open_signup.selectplatform_driver()
-open_signup.signup_driver()
+open_signup.SignUp_advertiser()
 
