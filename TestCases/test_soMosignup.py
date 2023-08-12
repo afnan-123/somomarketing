@@ -1,9 +1,12 @@
 import time
 import pytest as pytest
 from PageObject.SignUp import Signup
+from Config.Config import SignUp_data
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
+config = SignUp_data()
+adv_firstname = config.adv_firstname
 class TestSignup:
 
     @pytest.fixture(scope="function")
@@ -12,6 +15,8 @@ class TestSignup:
         self.wait = WebDriverWait(self.driver, 10)
         yield
         self.driver.quit()
+
+
 
     def test_signup_driver(self, setup):
 
@@ -51,7 +56,7 @@ class TestSignup:
         self.sp= Signup(self.driver)
         self.sp.open_signup_url()
         self.sp.selectplatform_advertiser()
-        self.sp.signup_names(0, "Elon")
+        self.sp.signup_names(0, adv_firstname)
         self.sp.signup_names(1, "Mash")
         self.sp.signup_names(2, "Elon1@yopmail.com")
         self.sp.signup_names(3, "XX")

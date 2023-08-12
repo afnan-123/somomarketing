@@ -27,6 +27,7 @@ class Signup:
         self.scroll_windows()
         btn_advertiser = self.driver.find_elements(By.CSS_SELECTOR, ".btn.color-secondary-bg.px-4")
         btn_advertiser[1].click()
+        assert "Sign up" in self.driver.find_element(By.XPATH, "//nav[@class='navbar navbar-expand-lg top-bar__header navbar-light bg-transparent position-sticky top-0 scrolledDown']"), "Successfully found"
 
     def select_address(self):
         business_address = self.driver.find_element(By.ID, "map")
@@ -54,6 +55,7 @@ class Signup:
         argu = argument
         btn_continue = self.driver.find_elements(By.CSS_SELECTOR, ".btn.button-primary")
         btn_continue[argu].click()
+        # check wether the continue button pressent or not
 
     def verify_success_message(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "body.x-layout.swal2-toast-shown.swal2-shown:nth-child(2) > div.swal2-container.swal2-top-end.swal2-backdrop-show:nth-child(8)")))
