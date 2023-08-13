@@ -5,10 +5,10 @@ from Config.Config import SignUp_data
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
-config = SignUp_data()
-adv_firstname = config.adv_firstname
-class TestSignup:
 
+class TestSignup:
+    config = SignUp_data()
+    adv_firstname = config.adv_firstname
     @pytest.fixture(scope="function")
     def setup(self):
         self.driver = webdriver.Firefox()
@@ -56,7 +56,7 @@ class TestSignup:
         self.sp= Signup(self.driver)
         self.sp.open_signup_url()
         self.sp.selectplatform_advertiser()
-        self.sp.signup_names(0, adv_firstname)
+        self.sp.signup_names(0, self.adv_firstname)
         self.sp.signup_names(1, "Mash")
         self.sp.signup_names(2, "Elon1@yopmail.com")
         self.sp.signup_names(3, "XX")

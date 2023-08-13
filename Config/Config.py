@@ -12,3 +12,10 @@ class SignUp_data:
 
     adv_firstname = "John"
     adv_lastname = "mali"
+    adv_emailaddress = ""
+    adv_phonenumber = ""
+    adv_title = ""
+    adv_address = ""
+    adv_password = ""
+    adv_confirmpassword = ""
+
