@@ -10,6 +10,7 @@ class SignUp_data:
     signin_adminID = "admin@somomarketing.com"
     signin_password = "password123"
 
+# advertiser fields
     adv_firstname = "John"
     adv_lastname = "mali"
     adv_emailaddress = ""
@@ -18,4 +19,21 @@ class SignUp_data:
     adv_address = ""
     adv_password = ""
     adv_confirmpassword = ""
+
+# driver fields
+    driver_regtype = ""
+    driver_Name = ""
+    driver_ein = ""
+    driver_emailaddress = ""
+    driver_contact = ""
+    driver_firstaddress = ""
+    driver_ownername = ""
+    driver_owneremail = ""
+    driver_ownercontact = ""
+    driver_owneraddress = ""
+    driver_ownercity = ""
+    driver_onwercountry = ""
+    driver_ownerstate = ""
+    driver_ownerzipcode = ""
+
 

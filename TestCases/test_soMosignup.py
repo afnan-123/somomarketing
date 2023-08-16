@@ -8,7 +8,31 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class TestSignup:
     config = SignUp_data()
+    # advertiser vaiables
     adv_firstname = config.adv_firstname
+    adv_lastname = config.adv_lastname
+    adv_emailaddress = config.adv_emailaddress
+    adv_phonenumber = config.adv_phonenumber
+    adv_title = config.adv_title
+    adv_address = config.adv_address
+    adv_password = config.adv_password
+    adv_confirmpassword = config.adv_confirmpassword
+    # driver variables
+    driver_regtype = config.driver_regtype
+    driver_Name = config.driver_Name
+    driver_ein = config.driver_ein
+    driver_emailaddress = config.driver_emailaddress
+    driver_contact = config.driver_contact
+    driver_firstaddress = config.driver_firstaddress
+    driver_ownername = config.driver_ownername
+    driver_owneremail = config.driver_owneremail
+    driver_ownercontact = config.driver_ownercontact
+    driver_owneraddress = config.driver_owneraddress
+    driver_ownercity = config.driver_ownercity
+    driver_onwercountry = config.driver_onwercountry
+    driver_ownerstate = config.driver_ownerstate
+    driver_ownerzipcode = config.driver_ownerzipcode
+
     @pytest.fixture(scope="function")
     def setup(self):
         self.driver = webdriver.Firefox()
