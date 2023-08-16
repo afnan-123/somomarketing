@@ -12,6 +12,7 @@ class TestSignup:
     adv_firstname = config.adv_firstname
     adv_lastname = config.adv_lastname
     adv_emailaddress = config.adv_emailaddress
+    adv_business = config.adv_business
     adv_phonenumber = config.adv_phonenumber
     adv_title = config.adv_title
     adv_address = config.adv_address
@@ -50,22 +51,22 @@ class TestSignup:
         self.sp.click_on_driver_button()
         self.sp.drp_regtype_click()
         self.sp.drp_select_type()
-        self.sp.signup_names(0, "Mark Trucks")
-        self.sp.signup_names(1, "234534532")
-        self.sp.signup_names(2, "marktrucks@yomail.com")
-        self.sp.enter_phone_number("+1 234 454 3423")
+        self.sp.signup_names(0, self.driver_Name)
+        self.sp.signup_names(1, self.driver_ein)
+        self.sp.signup_names(2, self.driver_emailaddress)
+        self.sp.enter_phone_number(self.driver_contact)
         self.sp.scroll_windows()
         self.sp.select_address()
         self.sp.click_btn_continue(0)
-        self.sp.signup_names(0, "mark")
-        self.sp.signup_names(1, "mark@yopmail.com")
-        self.sp.enter_phone_number("+1 234 454 3426")
-        self.sp.enter_owner_address("nj clark")
+        self.sp.signup_names(0, self.driver_ownername)
+        self.sp.signup_names(1, self.driver_owneremail)
+        self.sp.enter_phone_number(self.driver_ownercontact)
+        self.sp.enter_owner_address(self.driver_owneraddress)
 
-        self.sp.signup_names(2, "New York")
-        self.sp.signup_names(3, "America")
-        self.sp.signup_names(4, "New York")
-        self.sp.signup_names(5, "10001")
+        self.sp.signup_names(2, self.driver_ownercity)
+        self.sp.signup_names(3, self.driver_onwercountry)
+        self.sp.signup_names(4, self.driver_ownerstate)
+        self.sp.signup_names(5, self.driver_ownerzipcode)
         self.sp.click_btn_continue(1)
         self.sp.signup_names(0, "12345")
         self.sp.signup_names(1, "12345")
@@ -81,10 +82,10 @@ class TestSignup:
         self.sp.open_signup_url()
         self.sp.selectplatform_advertiser()
         self.sp.signup_names(0, self.adv_firstname)
-        self.sp.signup_names(1, "Mash")
-        self.sp.signup_names(2, "Elon1@yopmail.com")
-        self.sp.signup_names(3, "XX")
-        self.sp.signup_names(4, "CEO")
+        self.sp.signup_names(1, self.adv_lastname)
+        self.sp.signup_names(2, self.adv_emailaddress)
+        self.sp.signup_names(3, self.adv_business)
+        self.sp.signup_names(4, self.adv_title)
         self.sp.adv_dropdown_platform()
         self.sp.scroll_windows()
         self.sp.select_address()

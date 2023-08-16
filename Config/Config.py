@@ -13,6 +13,7 @@ class SignUp_data:
 # advertiser fields
     adv_firstname = "John"
     adv_lastname = "mali"
+    adv_business = ""
     adv_emailaddress = ""
     adv_phonenumber = ""
     adv_title = ""
