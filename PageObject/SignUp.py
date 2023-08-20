@@ -2,6 +2,7 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
+import unittest
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
@@ -87,6 +88,8 @@ class Signup:
         # name_field = self.driver.find_elements(By.CSS_SELECTOR, ".form-control.bg-transparent")
         self.driver.find_elements(self.name_field[argu]).click()
         self.driver.find_elements(self.name_field[argu]).send_keys(field_text)
+        verify_text = self.driver.find_elements(self.name_field[argu]).text
+        assert value == verify_text, "values didn't match"
 
     def drp_regtype_click(self):
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".form-select.bg-transparent"))).click()

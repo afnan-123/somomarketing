@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 class TestSignup:
+
     config = SignUp_data()
     # advertiser vaiables
     adv_firstname = config.adv_firstname
@@ -46,7 +47,7 @@ class TestSignup:
     def test_signup_driver(self, setup):
 
         print("Test case started successfully")
-        self.sp= Signup(self.driver)
+        self.sp = Signup(self.driver)
         self.sp.open_signup_url()
         self.sp.click_on_driver_button()
         self.sp.drp_regtype_click()
@@ -97,6 +98,7 @@ class TestSignup:
         self.sp.verify_success_message()
         time.sleep(5)
         print("Test case completed successfully")
+
 
 if __name__ == "__main__":
     pytest.main()
